@@ -15,19 +15,14 @@ class CreateExercisesTable extends Migration
     {
         Schema::create('exercises', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('tenant_id');
             $table->uuid('uuid');
             $table->string('name');
             $table->string('url');
             $table->string('image');
-            $table->string('video');
-            $table->text('description');
+            $table->string('video')->nullable();
+            $table->text('description')->nullable();
+            $table->softDeletes();
             $table->timestamps();
-
-            $table->foreign('tenant_id')
-                ->references('id')
-                ->on('tenants')
-                ->onDelete('cascade');
         });
     }
 

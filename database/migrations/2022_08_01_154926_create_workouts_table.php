@@ -21,6 +21,7 @@ class CreateWorkoutsTable extends Migration
             $table->string('url');
             $table->text('description');
             $table->date('period_at')->nullable(); // Periodo do treino
+            $table->softDeletes();
             $table->timestamps();
 
             $table->foreign('tenant_id')

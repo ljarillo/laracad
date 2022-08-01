@@ -90,10 +90,16 @@ Route::prefix('admin')
         Route::resource('categories', 'CategoryController');
 
         /**
-         * Routes Athlete
+         * Routes Athletes
          */
         Route::any('athletes/search', 'AthleteController@search')->name('athletes.search');
         Route::resource('athletes', 'AthleteController');
+
+        /**
+         * Routes Exercises
+         */
+        Route::any('exercises/search', 'ExerciseController@search')->name('exercises.search');
+        Route::resource('exercises', 'ExerciseController');
 
         /**
          * Routes Users
