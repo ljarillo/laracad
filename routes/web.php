@@ -90,6 +90,12 @@ Route::prefix('admin')
         Route::resource('categories', 'CategoryController');
 
         /**
+         * Routes Athlete
+         */
+        Route::any('athletes/search', 'AthleteController@search')->name('athletes.search');
+        Route::resource('athletes', 'AthleteController');
+
+        /**
          * Routes Users
          */
         Route::any('users/search', 'UserController@search')->name('users.search');
@@ -139,7 +145,7 @@ Route::prefix('admin')
         /**
          * Routes Details Plans
          */
-        Route::resource('plans/{url}/details', 'DetailPlanController::class');
+        Route::resource('plans/{url}/details', 'DetailPlanController');
 
         /**
          * Routes Plans

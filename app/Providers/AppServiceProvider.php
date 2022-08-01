@@ -2,12 +2,14 @@
 
 namespace App\Providers;
 
+use App\Models\Athlete;
 use App\Models\Category;
 use App\Models\Client;
 use App\Models\Plan;
 use App\Models\Product;
 use App\Models\Table;
 use App\Models\Tenant;
+use App\Observers\AthleteObserver;
 use App\Observers\CategoryObserver;
 use App\Observers\ClientObserver;
 use App\Observers\PlanObserver;
@@ -42,6 +44,7 @@ class AppServiceProvider extends ServiceProvider
         Product::observe(ProductObserver::class);
         Client::observe(ClientObserver::class);
         Table::observe(TableObserver::class);
+        Athlete::observe(AthleteObserver::class);
 
         /**
          * Custom If Statements

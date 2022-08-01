@@ -25,7 +25,7 @@
                 <li><b>CNPL:</b> {{ $tenant->cnpj }}</li>
                 <li><b>Url:</b> {{ $tenant->url }}</li>
                 <li><b>E-mail:</b> {{ $tenant->email }}</li>
-                <li><b>Ativo:</b> {{ $tenant->active == 'Y' ? 'Sim' : 'Não'}}</li>
+                <li><b>Ativo:</b> {{ $tenant->active ? 'Sim' : 'Não'}}</li>
             </ul>
 
             <hr>

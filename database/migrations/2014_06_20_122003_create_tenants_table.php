@@ -24,7 +24,7 @@ class CreateTenantsTable extends Migration
             $table->string('logo')->nullable();
 
             // Status
-            $table->enum('active', ['Y', 'N'])->default('Y');
+            $table->boolean('active')->default(true);
 
             //Subscription
             $table->date('subscription')->nullable(); // Data que se inscreveu

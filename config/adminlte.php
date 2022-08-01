@@ -283,6 +283,24 @@ return [
             'url'   => 'admin/tables',
             'icon' => 'fas fa-tablet',
             'can'   => 'tables'
+        ],
+        [
+            'text'  => 'Alunos',
+            'url'   => 'admin/athletes',
+            'icon'  => 'fas fa-users',
+            'can'   => 'athletes'
+        ],
+        [
+            'text'  => 'Treinos',
+            'url'   => 'admin/workouts',
+            'icon'  => 'fas fa-file-alt',
+            'can'   => 'workouts'
+        ],
+        [
+            'text'  => 'Exercícios',
+            'url'   => 'admin/exercises',
+            'icon'  => 'fas fa-dumbbell',
+            'can'   => 'exercises'
         ]
     ],
 

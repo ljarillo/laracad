@@ -56,7 +56,8 @@ trait UserACLTrait
 
     public function hasPermission(string $permissionName): bool
     {
-        return in_array($permissionName, $this->permissions());
+//        return in_array($permissionName, $this->permissions());
+        return in_array($permissionName, $this->permissionsPlan());
     }
 
     public function isAdmin(): bool
