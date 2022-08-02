@@ -15,8 +15,8 @@
                 </span>
 
                 <div class="info-box-content">
-                    <span class="info-box-text">Usuários</span>
-                    <span class="info-box-number">{{ $totalUsers }}</span>
+                    <span class="info-box-text">Atletas</span>
+                    <span class="info-box-number">{{ $totalAthletes }}</span>
                 </div>
                 <!-- /.info-box-content -->
             </div>
@@ -30,8 +30,8 @@
                 </span>
 
                 <div class="info-box-content">
-                    <span class="info-box-text">Mesas</span>
-                    <span class="info-box-number">{{ $totalTables }}</span>
+                    <span class="info-box-text">Treinos</span>
+                    <span class="info-box-number">{{ $totalWorkout }}</span>
                 </div>
                 <!-- /.info-box-content -->
             </div>
@@ -45,23 +45,8 @@
                 </span>
 
                 <div class="info-box-content">
-                    <span class="info-box-text">Categorias</span>
-                    <span class="info-box-number">{{ $totalCategories }}</span>
-                </div>
-                <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
-        </div>
-
-        <div class="col-md-3 col-sm-6 col-xs-12">
-            <div class="info-box">
-              <span class="info-box-icon bg-aqua">
-                  <i class="fas fa-hamburger"></i>
-                </span>
-
-                <div class="info-box-content">
-                    <span class="info-box-text">Produtos</span>
-                    <span class="info-box-number">{{ $totalProducts }}</span>
+                    <span class="info-box-text">Exercícios</span>
+                    <span class="info-box-number">{{ $totalExercises }}</span>
                 </div>
                 <!-- /.info-box-content -->
             </div>

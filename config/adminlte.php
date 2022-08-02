@@ -285,7 +285,7 @@ return [
 //            'can'   => 'tables'
 //        ],
         [
-            'text'  => 'Alunos',
+            'text'  => 'Atletas',
             'url'   => 'admin/athletes',
             'icon'  => 'fas fa-users',
             'can'   => 'athletes'

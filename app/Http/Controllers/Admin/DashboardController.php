@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Athlete;
 use App\Models\Category;
+use App\Models\Exercise;
 use App\Models\Permission;
 use App\Models\Plan;
 use App\Models\Product;
@@ -12,6 +14,7 @@ use App\Models\Role;
 use App\Models\Table;
 use App\Models\Tenant;
 use App\Models\User;
+use App\Models\Workout;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -20,10 +23,9 @@ class DashboardController extends Controller
     {
         $tenant = auth()->user()->tenant;
 
-        $totalUsers = User::where('tenant_id', $tenant->id)->count();
-        $totalTables = Table::count();
-        $totalCategories = Category::count();
-        $totalProducts = Product::count();
+        $totalAthletes = Athlete::where('tenant_id', $tenant->id)->count();
+        $totalWorkout = Workout::where('tenant_id', $tenant->id)->count();
+        $totalExercises = Exercise::count();
         $totalTenants = Tenant::count();
         $totalPlans = Plan::count();
         $totalRoles = Role::count();
@@ -31,10 +33,9 @@ class DashboardController extends Controller
         $totalPermissions = Permission::count();
 
         return view('admin.pages.home.home', compact(
-            'totalUsers',
-            'totalTables',
-            'totalCategories',
-            'totalProducts',
+            'totalAthletes',
+            'totalWorkout',
+            'totalExercises',
             'totalTenants',
             'totalPlans',
             'totalRoles',
