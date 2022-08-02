@@ -1,22 +1,22 @@
 @extends('adminlte::page')
 
-@section('title', "Cargos disponíveis do usuário {$user->name}")
+@section('title', "Treinos disponíveis para o Atleta {$athlete->name}")
 
 @section('content_header')
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">Dashboard</a></li>
-        <li class="breadcrumb-item"><a href="{{ route('users.index') }}" >Usuários</a></li>
-        <li class="breadcrumb-item"><a href="{{ route('users.roles', $user->id) }}">Cargos</a></li>
-        <li class="breadcrumb-item active"><a href="{{ route('users.roles.available', $user->id) }}" class="active">Novos Cargos</a></li>
+        <li class="breadcrumb-item"><a href="{{ route('athletes.index') }}" >Atletas</a></li>
+        <li class="breadcrumb-item"><a href="{{ route('athletes.workouts', $athlete->id) }}">Treinos disponíveis</a></li>
+        <li class="breadcrumb-item active"><a href="{{ route('athletes.workouts.available', $athlete->id) }}" class="active">Novos Treinos</a></li>
     </ol>
 
-    <h1>Cargos disponíveis do usuário <b>{{ $user->name }}</b></h1>
+    <h1>Treinos disponíveis para o Atleta <b>{{ $athlete->name }}</b></h1>
 @stop
 
 @section('content')
     <div class="card">
         <div class="card-header">
-            <form action="{{ route('users.roles.available', $user->id) }}" method="POST" class="form form-inline">
+            <form action="{{ route('athletes.workouts.available', $athlete->id) }}" method="POST" class="form form-inline">
                 @csrf
                 <input type="text" name="filter" placeholder="Busca" class="form-control" value="{{ $filters['filter'] ?? '' }}">
                 <div class="input-group">
@@ -36,14 +36,14 @@
                 </tr>
                 </thead>
                 <tbody>
-                <form action="{{ route('users.roles.attach', $user->id) }}" method="POST">
+                <form action="{{ route('athletes.workouts.attach', $athlete->id) }}" method="POST">
                     @csrf
-                    @foreach($roles as $role)
+                    @foreach($workouts as $workout)
                         <tr>
                             <td>
-                                <input type="checkbox" id="role-{{ $role->id }}" name="roles[]" value="{{ $role->id }}">
+                                <input type="checkbox" id="workout-{{ $workout->id }}" name="workouts[]" value="{{ $workout->id }}">
                             </td>
-                            <td><label for="role-{{ $role->id }}">{{ $role->name }}</label></td>
+                            <td><label for="workout-{{ $workout->id }}">{{ $workout->name }}</label></td>
                         </tr>
                     @endforeach
                     <tr>
@@ -57,9 +57,9 @@
         </div>
         <div class="card-footer">
             @if(isset($filters))
-                {!! $roles->appends($filters)->links() !!}
+                {!! $workouts->appends($filters)->links() !!}
             @else
-                {!! $roles->links() !!}
+                {!! $workouts->links() !!}
             @endif
 
         </div>

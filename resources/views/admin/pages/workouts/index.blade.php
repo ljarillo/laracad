@@ -42,7 +42,7 @@
                         <td class="text-center">
                             <a href="{{ route('workouts.show', $workout->id) }}" class="btn btn-info"><i class="fa fa-eye"></i> Ver</a>
                             <a href="{{ route('workouts.edit', $workout->id) }}" class="btn btn-warning"><i class="fa fa-pen"></i> Editar</a>
-                            <a href="{{ route('workouts.exercises', $workout->id) }}" class="btn btn-default"><i class="fas fa-file-alt"></i></a>
+                            <a href="{{ route('workouts.exercises', $workout->id) }}" class="btn btn-default"><i class="fas fa-dumbbell"></i></a>
                         </td>
                     </tr>
                 @endforeach

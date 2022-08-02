@@ -31,6 +31,14 @@ class Workout extends Model
             ->withPivot('repetition','description');
     }
 
+    /**
+     * Get Athlete
+     */
+    public function athletes()
+    {
+        return $this->belongsToMany(Athlete::class, 'athlete_workout');
+    }
+
     public function exercisesAvailable($filter = null)
     {
         $exercises = Exercise::whereNotIn('exercises.id', function ($query){

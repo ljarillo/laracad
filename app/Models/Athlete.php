@@ -35,6 +35,30 @@ class Athlete extends Model
     }
 
     /**
+     * Get Workout
+     */
+    public function workouts()
+    {
+        return $this->belongsToMany(Workout::class);
+    }
+
+    public function workoutsAvailable($filter = null)
+    {
+        $workouts = Workout::whereNotIn('workouts.id', function ($query){
+            $query->select('athlete_workout.athlete_id');
+            $query->from('athlete_workout');
+            $query->whereRaw("athlete_workout.workout_id={$this->id}");
+        })
+            ->where(function ($queryFilter) use ($filter){
+                if($filter)
+                    $queryFilter->where('workouts.name', 'LIKE', "%{$filter}%");
+            })
+            ->paginate();
+
+        return $workouts;
+    }
+
+    /**
      * @param $filter
      * @return mixed
      */

@@ -42,6 +42,7 @@
                         <td class="text-center">
                             <a href="{{ route('athletes.show', $athlete->id) }}" class="btn btn-info"><i class="fa fa-eye"></i> Ver</a>
                             <a href="{{ route('athletes.edit', $athlete->id) }}" class="btn btn-warning"><i class="fa fa-pen"></i> Editar</a>
+                            <a href="{{ route('athletes.workouts', $athlete->id) }}" class="btn btn-default"><i class="fas fa-file-alt"></i></a>
                         </td>
                     </tr>
                 @endforeach

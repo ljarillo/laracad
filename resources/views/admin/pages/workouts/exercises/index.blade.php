@@ -10,7 +10,7 @@
     </ol>
 
     <h1>Exercícios do Treino <b>{{ $workout->name }}</b>
-        <a href="{{ route('workouts.exercises.available', $workout->id) }}" class="btn btn-dark"><i class="fa fa-plus-square"></i> Add nova permissão</a>
+        <a href="{{ route('workouts.exercises.available', $workout->id) }}" class="btn btn-dark"><i class="fa fa-plus-square"></i> Add Exercício</a>
     </h1>
 @stop
 

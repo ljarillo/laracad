@@ -90,6 +90,18 @@ Route::prefix('admin')
         Route::resource('categories', 'CategoryController');
 
         /**
+         * Routes Workout X Exercise
+         */
+        Route::get('athletes/{id}/workouts/{idExercise}/detach', 'ACL\AthleteWorkoutController@detachWorkoutsAthlete')
+            ->name('athletes.workouts.detach');
+        Route::post('athletes/{id}/workouts', 'ACL\AthleteWorkoutController@attachWorkoutsAthlete')
+            ->name('athletes.workouts.attach');
+        Route::any('athletes/{id}/workouts/create', 'ACL\AthleteWorkoutController@workoutsAvailable')
+            ->name('athletes.workouts.available');
+        Route::get('athletes/{id}/workouts', 'ACL\AthleteWorkoutController@workouts')
+            ->name('athletes.workouts');
+
+        /**
          * Routes Athletes
          */
         Route::any('athletes/search', 'AthleteController@search')->name('athletes.search');
@@ -106,8 +118,6 @@ Route::prefix('admin')
             ->name('workouts.exercises.available');
         Route::get('workouts/{id}/exercises', 'ACL\WorkoutExerciseController@exercises')
             ->name('workouts.exercises');
-//        Route::get('permissions/{id}/profiles', 'ACL\PermissionProfileController@profiles')
-//            ->name('permissions.profiles');
 
         /**
          * Routes Workout

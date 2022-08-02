@@ -17,8 +17,8 @@ class CreateWorkoutExercise extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('workout_id');
             $table->unsignedBigInteger('exercise_id');
-            $table->string('repetition')->nullable();;
-            $table->text('description')->nullable();;
+            $table->string('repetition')->nullable();
+            $table->text('description')->nullable();
 
             $table->foreign('workout_id')
                 ->references('id')
