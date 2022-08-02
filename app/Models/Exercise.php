@@ -10,4 +10,18 @@ class Exercise extends Model
     use SoftDeletes;
 
     protected $fillable = ['name', 'url', 'image', 'video', 'description'];
+
+    /**
+     * @param $filter
+     * @return mixed
+     */
+    public function search($filter = null)
+    {
+        $results = $this->where('name', 'LIKE', "%{$filter}%")
+            ->orWhere('description', 'LIKE', "%{$filter}%")
+            ->latest()
+            ->paginate();
+
+        return $results;
+    }
 }

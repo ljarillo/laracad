@@ -254,36 +254,36 @@ return [
             'icon' => 'fas fa-lock',
             'can'   => 'permissions'
         ],
-        [
-            'text'  => 'Cargos',
-            'url'   => 'admin/roles',
-            'icon' => 'fas fa-address-card',
-            'can'   => 'roles'
-        ],
-        [
-            'text'  => 'Usuários',
-            'url'   => 'admin/users',
-            'icon' => 'fas fa-users',
-            'can'   => 'users'
-        ],
-        [
-            'text'  => 'Categorias',
-            'url'   => 'admin/categories',
-            'icon' => 'fas fa-layer-group',
-            'can'   => 'categories'
-        ],
-        [
-            'text'  => 'Produtos',
-            'url'   => 'admin/products',
-            'icon' => 'fas fa-utensils',
-            'can'   => 'products'
-        ],
-        [
-            'text'  => 'Mesas',
-            'url'   => 'admin/tables',
-            'icon' => 'fas fa-tablet',
-            'can'   => 'tables'
-        ],
+//        [
+//            'text'  => 'Cargos',
+//            'url'   => 'admin/roles',
+//            'icon' => 'fas fa-address-card',
+//            'can'   => 'roles'
+//        ],
+//        [
+//            'text'  => 'Usuários',
+//            'url'   => 'admin/users',
+//            'icon' => 'fas fa-users',
+//            'can'   => 'users'
+//        ],
+//        [
+//            'text'  => 'Categorias',
+//            'url'   => 'admin/categories',
+//            'icon' => 'fas fa-layer-group',
+//            'can'   => 'categories'
+//        ],
+//        [
+//            'text'  => 'Produtos',
+//            'url'   => 'admin/products',
+//            'icon' => 'fas fa-utensils',
+//            'can'   => 'products'
+//        ],
+//        [
+//            'text'  => 'Mesas',
+//            'url'   => 'admin/tables',
+//            'icon' => 'fas fa-tablet',
+//            'can'   => 'tables'
+//        ],
         [
             'text'  => 'Alunos',
             'url'   => 'admin/athletes',

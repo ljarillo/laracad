@@ -31,7 +31,7 @@
             <form action="{{ route('exercises.destroy', $exercise->id) }}" method="POST">
                 @csrf
                 @method('DELETE')
-                <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i> DELETAR O PRODUTO {{ strtoupper($exercise->title) }}</button>
+                <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i> DELETAR O EXERCÍCIO {{ strtoupper($exercise->title) }}</button>
             </form>
         </div>
     </div>

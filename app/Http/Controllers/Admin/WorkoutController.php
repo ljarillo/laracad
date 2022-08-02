@@ -3,20 +3,22 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreUpdateAthlete;
-use App\Models\Athlete;
+use App\Http\Requests\StoreUpdateWorkout;
+use App\Models\Workout;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
-class AthleteController extends Controller
+class WorkoutController extends Controller
 {
     protected $repository;
 
-    public function __construct(Athlete $athlete)
+    public function __construct(Workout $workout)
     {
-        $this->repository = $athlete;
+        $this->repository = $workout;
 
-        $this->middleware(['can:athletes']);
+        $this->middleware(['can:workouts']);
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -24,9 +26,9 @@ class AthleteController extends Controller
      */
     public function index()
     {
-        $athletes = $this->repository->latest()->paginate();
+        $workouts = $this->repository->latest()->paginate();
 
-        return view('admin.pages.athletes.index', compact('athletes'));
+        return view('admin.pages.workouts.index', compact('workouts'));
     }
 
     /**
@@ -36,21 +38,21 @@ class AthleteController extends Controller
      */
     public function create()
     {
-        return view('admin.pages.athletes.create');
+        return view('admin.pages.workouts.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreUpdateAthlete $request
+     * @param  \App\Http\Requests\StoreUpdateWorkout  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreUpdateAthlete $request)
+    public function store(StoreUpdateWorkout $request)
     {
         $this->repository->create($request->all());
 
         return redirect()
-            ->route('athletes.index')
+            ->route('workouts.index')
             ->with('message', 'Atleta inserido com sucesso');
     }
 
@@ -62,11 +64,11 @@ class AthleteController extends Controller
      */
     public function show($id)
     {
-        if(!$athlete = $this->repository->find($id)){
+        if(!$workout = $this->repository->find($id)){
             return redirect()->back();
         }
 
-        return view('admin.pages.athletes.show', compact('athlete'));
+        return view('admin.pages.workouts.show', compact('workout'));
     }
 
     /**
@@ -77,29 +79,29 @@ class AthleteController extends Controller
      */
     public function edit($id)
     {
-        if(!$athlete = $this->repository->find($id)){
+        if(!$workout = $this->repository->find($id)){
             return redirect()->back();
         }
 
-        return view('admin.pages.athletes.edit', compact('athlete'));
+        return view('admin.pages.workouts.edit', compact('workout'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\StoreUpdateAthlete $request
+     * @param  \Illuminate\Http\StoreUpdateWorkout  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(StoreUpdateAthlete $request, $id)
+    public function update(StoreUpdateWorkout $request, $id)
     {
-        if(!$athlete = $this->repository->find($id)){
+        if(!$workout = $this->repository->find($id)){
             return redirect()->back();
         }
 
-        $athlete->update($request->all());
+        $workout->update($request->all());
 
-        return redirect()->route('athletes.index')
+        return redirect()->route('workouts.index')
             ->with('message', 'Atleta editado com sucesso');
     }
 
@@ -117,7 +119,7 @@ class AthleteController extends Controller
 
         $category->delete();
 
-        return redirect()->route('athletes.index');
+        return redirect()->route('workouts.index');
     }
 
     /**
@@ -129,10 +131,10 @@ class AthleteController extends Controller
     public function search(Request $request)
     {
         $filters = $request->except('_token');
-        $athletes = $this->repository->search($request->filter);
+        $workouts = $this->repository->search($request->filter);
 
-        return view('admin.pages.athletes.index', [
-            'athletes' => $athletes,
+        return view('admin.pages.workouts.index', [
+            'workouts' => $workouts,
             'filters' => $filters
         ]);
     }
