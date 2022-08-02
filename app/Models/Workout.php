@@ -22,6 +22,32 @@ class Workout extends Model
     }
 
     /**
+     * Get Exercise
+     */
+    public function exercises()
+    {
+        return $this->belongsToMany(Exercise::class,'workout_exercise')
+            ->using(WorkoutExercise::class)
+            ->withPivot('repetition','description');
+    }
+
+    public function exercisesAvailable($filter = null)
+    {
+        $exercises = Exercise::whereNotIn('exercises.id', function ($query){
+            $query->select('workout_exercise.exercise_id');
+            $query->from('workout_exercise');
+            $query->whereRaw("workout_exercise.workout_id={$this->id}");
+        })
+            ->where(function ($queryFilter) use ($filter){
+                if($filter)
+                    $queryFilter->where('exercises.name', 'LIKE', "%{$filter}%");
+            })
+            ->paginate();
+
+        return $exercises;
+    }
+
+    /**
      * @param $filter
      * @return mixed
      */

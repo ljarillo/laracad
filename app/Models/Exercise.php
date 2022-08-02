@@ -12,6 +12,16 @@ class Exercise extends Model
     protected $fillable = ['name', 'url', 'image', 'video', 'description'];
 
     /**
+     * Get Workout
+     */
+    public function workouts()
+    {
+        return $this->belongsToMany(Workout::class, 'workout_exercise')
+            ->using(WorkoutExercise::class)
+            ->withPivot('repetition','description');
+    }
+
+    /**
      * @param $filter
      * @return mixed
      */
