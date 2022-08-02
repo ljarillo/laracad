@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'LaraFood',
+    'title' => 'LarAcad',
     'title_prefix' => '',
     'title_postfix' => '',
 
