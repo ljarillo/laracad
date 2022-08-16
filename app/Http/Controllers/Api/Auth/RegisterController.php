@@ -3,23 +3,23 @@
 namespace App\Http\Controllers\Api\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreClient;
-use App\Http\Resources\ClientResource;
-use App\Services\ClientService;
+use App\Http\Requests\Api\StoreAthlete;
+use App\Http\Resources\AthleteResource;
+use App\Services\AthleteService;
 
 class RegisterController extends Controller
 {
-    protected $clientService;
+    protected $athleteService;
 
-    public function __construct(ClientService $clientService)
+    public function __construct(AthleteService $athleteService)
     {
-        $this->clientService = $clientService;
+        $this->athleteService = $athleteService;
     }
 
-    public function store(StoreClient $request)
+    public function store(StoreAthlete $request)
     {
-        $client = $this->clientService->createNewClient($request->all());
+        $athlete = $this->athleteService->createNewAthlete($request->all());
 
-        return new ClientResource($client);
+        return new AthleteResource($athlete);
     }
 }

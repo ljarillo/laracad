@@ -3,14 +3,16 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use App\Repositories\{CategoryRepository,
+use App\Repositories\{AthleteRepository,
+    CategoryRepository,
     ClientRepository,
     EvaluationRepository,
     OrderRepository,
     ProductRepository,
     TableRepository,
     TenantRepository};
-use App\Repositories\Contracts\{CategoryRepositoryInterface,
+use App\Repositories\Contracts\{AthleteRepositoryInterface,
+    CategoryRepositoryInterface,
     ClientRepositoryInterface,
     EvaluationRepositoryInterface,
     OrderRepositoryInterface,
@@ -48,12 +50,17 @@ class RepositoryServiceProvider extends ServiceProvider
         );
 
         $this->app->bind(
+            AthleteRepositoryInterface::class,AthleteRepository::class
+        );
+
+        $this->app->bind(
             OrderRepositoryInterface::class,OrderRepository::class
         );
 
         $this->app->bind(
             EvaluationRepositoryInterface::class,EvaluationRepository::class
         );
+
     }
 
     /**
